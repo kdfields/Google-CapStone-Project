@@ -36,25 +36,35 @@ There are 5,595,063 rows of data.
 
 ![image](https://github.com/kdfields/Google_CapStone_Project/assets/113741694/cf0ada26-57a8-4630-8b77-0510bfe24484)
 
-Every ride_id is unique so no removal of duplicates is necessary.
+### I inspected each column in the data set, notating what columns need to be cleaned prior to the exploratory analysis phase.
+
+* Every ride_id is unique so no removal of duplicates is necessary.
 
 <img width="150" alt="image" src="https://github.com/kdfields/Google_CapStone_Project/assets/113741694/5cd182cf-7758-4da6-84c9-cd5a5a6de32c">
 
-All the ride_ids are 16 characters in length.
+* All the ride_ids are 16 characters in length.
 
 <img width="250" alt="image" src="https://github.com/kdfields/Google_CapStone_Project/assets/113741694/6a57807a-57f5-46aa-a661-08a40b557156">
 
-Confirmed three bike types: electric, classic, docked ('docked_bike' is named incorrectly and will be changed to 'classic' later).
+* Confirmed three bike types: electric, classic, docked ('docked_bike' is named incorrectly and will be changed to 'classic' later). <img width="90" alt="image" src="https://github.com/kdfields/Google_CapStone_Project/assets/113741694/f2eb7a5d-4993-4c7e-88d4-6eb692e4071f" align='right'>
 
-<img width="150" alt="image" src="https://github.com/kdfields/Google_CapStone_Project/assets/113741694/324af70c-4040-4bf3-9567-5f9b7ffbc18d">
 
-There are 163,630 trip durations of less than 1 minute or longer than 1 day that will be removed later.
 
-<img width="150" alt="image" src="https://github.com/kdfields/Google_CapStone_Project/assets/113741694/f63ccd29-54c0-4ab2-b4da-6d6a7c044fa7">
+* There are 163,630 trip durations of less than 1 minute or longer than 1 day that will be removed later.
 
-Inspected start station names and found entries that need to be removed: '351' (bad name), 'Base-2132 W Hubbard Warehouse'(repair warehouse for bikes), and 'Lyft Driver Center Private Rack' (parking rack for Lyft )
+<img width="90" alt="image" src="https://github.com/kdfields/Google_CapStone_Project/assets/113741694/f63ccd29-54c0-4ab2-b4da-6d6a7c044fa7" align='right'>
+
+
+
+* Inspected start and end station names and found entries that need to be removed: 'Null' (no station name),'351' (bad name), 'Base-2132 W Hubbard Warehouse'(repair warehouse for bikes), 'Divvy Cassette Repair Mobile Station' (mobile repair station), and 'Lyft Driver Center Private Rack' (parking rack for Lyft riders).  Some of the valid station names have leading or trailing spaces that will need to be cleaned.
 
 <img width="250" alt="image" src="https://github.com/kdfields/Google_CapStone_Project/assets/113741694/93cde21d-d591-467d-8cd8-cd7d57abc98e">
 
+<img width="250" alt="image" src="https://github.com/kdfields/Google_CapStone_Project/assets/113741694/413827cc-ee16-4fc9-8260-721d26d88e6b">
 
+* Classic and docked bikes are required to start and end their trips at a docking station, but electric bikes may be locked up 
+nearby using attached bike locks; these trips do not require a start and end station name.  Classic/docked bikes with no  
+start and end station name will be removed and electric bikes with no start and end station names will be changed to 'On Bike Lock'.
+
+<img width="250" alt="image" src="https://github.com/kdfields/Google_CapStone_Project/assets/113741694/5d94c257-9712-4783-a848-6099b1861fed">
 
