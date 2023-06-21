@@ -18,8 +18,8 @@ To provide context, certain facts and limitations pertaining to the data have be
   1. Each month's data encompasses all bike trips that occurred during that specific period.
   2. To ensure privacy, any personally identifiable customer information has been removed from the data.
   3. The terms "docked bikes" and "classic bikes" refer to the same type of bicycles.
-  4. Classic bikes are required to initiate and conclude their trips at docking stations, while electric bikes possess a lock and can be both started and finished anywhere       near a docking station.
-  5. Trips with a duration of less than 1 minute or longer than 1 day are considered outliers and should be excluded from the analysis, as they typically represent               maintenance tasks performed by Cyclistic or instances where bikes have been stolen.
+  4. Classic bikes are required to initiate and conclude their trips at docking stations, while electric bikes possess a lock and can be both started and finished anywhere near a docking station.
+  5. Trips with a duration of less than 1 minute or longer than 1 day are considered outliers and should be excluded from the analysis, as they typically represent maintenance tasks performed by Cyclistic or instances where bikes have been stolen.
 
 ## Process
 
@@ -46,14 +46,13 @@ There are 5,595,063 rows of data.
 
 <img width="250" alt="image" src="https://github.com/kdfields/Google_CapStone_Project/assets/113741694/6a57807a-57f5-46aa-a661-08a40b557156">
 
-* Confirmed three bike types: electric, classic, docked ('docked_bike' is named incorrectly and will be changed to 'classic' later). <img width="90" alt="image" src="https://github.com/kdfields/Google_CapStone_Project/assets/113741694/f2eb7a5d-4993-4c7e-88d4-6eb692e4071f" align='right'>
-
+* Confirmed three bike types: electric, classic, docked ('docked_bike' is named incorrectly and will be changed to 'classic' later).
+<img width="124" alt="image" src="https://github.com/kdfields/Google_CapStone_Project/assets/113741694/5e6237a4-be0a-4bb1-b5fd-4a65d49ff031">
 
 
 * There are 163,630 trip durations of less than 1 minute or longer than 1 day that will be removed later.
 
-<img width="90" alt="image" src="https://github.com/kdfields/Google_CapStone_Project/assets/113741694/f63ccd29-54c0-4ab2-b4da-6d6a7c044fa7" align='right'>
-
+<img width="90" alt="image" src="https://github.com/kdfields/Google_CapStone_Project/assets/113741694/f63ccd29-54c0-4ab2-b4da-6d6a7c044fa7">
 
 
 * Inspected start and end station names and found entries that need to be removed: 'Null' (no station name),'351' (bad name), 'Base-2132 W Hubbard Warehouse'(repair warehouse for bikes), 'Divvy Cassette Repair Mobile Station' (mobile repair station), and 'Lyft Driver Center Private Rack' (parking rack for Lyft riders).  Some of the valid station names have leading or trailing spaces that will need to be cleaned.
@@ -67,4 +66,42 @@ nearby using attached bike locks; these trips do not require a start and end sta
 start and end station name will be removed and electric bikes with no start and end station names will be changed to 'On Bike Lock'.
 
 <img width="250" alt="image" src="https://github.com/kdfields/Google_CapStone_Project/assets/113741694/5d94c257-9712-4783-a848-6099b1861fed">
+
+* Approximately 4771 rows are missing data on the starting or ending latitude and longitude.  These rows will be removed as these locations cannot be mapped.
+
+  <img width="120" alt="image" src="https://github.com/kdfields/Google_CapStone_Project/assets/113741694/a8de049a-4068-4801-be13-d85479a4cdb8">
+
+* Confirmed that there are two types of riders: casual and members.  Casual riders pay by the trip and members pay a monthly subscription fee.
+  
+  <img width="122" alt="image" src="https://github.com/kdfields/Google_CapStone_Project/assets/113741694/432d00eb-a774-4892-8067-9a987f6c51a3">
+
+### Data Cleaning
+After conducting the preliminary analysis, I have identified the next steps in the data cleaning process.  Some of the data needs to be cleaned further, or removed completely, and some new columns need to be created using the data available to further assist our analysis. Here is one example of the queries used to clean the data further.
+
+<img width="450" alt="image" src="https://github.com/kdfields/Google_CapStone_Project/assets/113741694/28432b32-52c4-4335-9a08-36cf8e9c5445">
+
+
+A summary of the data cleaning steps taken can be described as follows:
+
+1. Trips involving classic bikes were removed if either the start or end station had null values.
+2. Trips with missing latitude or longitude values for the start or end locations were removed.
+3. The label 'docked bike' was replaced with 'classic bike'.
+4. Leading and trailing spaces in the start and end station names were removed to ensure consistency.
+5. Null values in the start and end station name columns were replaced with 'On Bike Lock' for electric bikes only.
+6. Additional columns were created to include the day of the week, month, year, and ride time length for analysis purposes.
+7. Trips with extremely short (less than/equal to 1 minute) or long (greater than/equal to 1 day) ride times were removed.
+8. Trips associated with bike maintenance stations were excluded.
+9. As a result of these cleaning steps, a combined table with 5,424,330 rows remained after removing 170,733 rows.
+
+## Analyze/Share
+To understand the question, **How annual members and casual riders utilize Cyclistic bikes differently?**, the data was thoroughly cleaned and then analyzed. The analysis process involved using SQL queries to sort, filter, and aggregate the data prior to exporting the data to Tableau for data visualizations.  Here is an example of one of the queries used:
+
+<img width="480" alt="image" src="https://github.com/kdfields/Google_CapStone_Project/assets/113741694/a574ccd5-c96d-4c17-8ffa-e28c2bbc3fac">
+
+
+
+
+
+
+
 
