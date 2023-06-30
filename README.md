@@ -98,8 +98,29 @@ To understand the question, **How annual members and casual riders utilize Cycli
 
 <img width="480" alt="image" src="https://github.com/kdfields/Google_CapStone_Project/assets/113741694/a574ccd5-c96d-4c17-8ffa-e28c2bbc3fac">
 
+### Discoveries
+<img width="779" alt="image" src="https://github.com/kdfields/Google_CapStone_Project/assets/113741694/7232196f-1c7d-4017-b406-ff872232365f">
+
+In 2021, the majority of trips taken were by annual members, making up 54.5% of the total, while casual riders accounted for 45.5% of the rides. Both groups showed a preference for classic bikes over electric bikes. However, casual riders used electric bikes at a slightly higher proportion compared to classic bikes, with 37.3% of their rides being electric bikes, compared to 34.9% for annual members. It is worth noting that this difference is not considered statistically significant.
+
+I analyzed the overall bike trip data for 2021, considering the number of trips based on the month and time of day.
+
+<img width="593" alt="image" src="https://github.com/kdfields/Google_CapStone_Project/assets/113741694/45d31df3-9c4b-4343-9140-638000c6bf70">
 
 
+Based on the line graphs, it is clear that casual members show a preference for riding bikes during late spring through the end of summer, while their ridership declines in the winter months, possibly due to unfavorable weather conditions. On the other hand, annual members also prefer riding bikes during the spring and summer but exhibit more consistent ridership levels throughout the year. Notably, the ridership of annual members significantly increases between 6am and 8am, peaking between 4pm and 6pm, and drops significantly after 7pm. In contrast, casual ridership remains relatively stable throughout the day without any sharp spikes.
+
+Based on these observations, we can hypothesize that annual members primarily use Cyclistic bikes for commuting, as their ridership peaks during typical work commute hours and declines outside of those hours. Additionally, annual members display less of a decline in ridership during the winter months compared to casual members. Hence, it is plausible to speculate that casual members utilize Cyclistic bikes more for recreational or leisure purposes.
+
+To further investigate this hypothesis, I proceeded to analyze the ridership levels based on the day of the week and average ride duration measured in minutes.
+
+<img width="552" alt="image" src="https://github.com/kdfields/Google_CapStone_Project/assets/113741694/af8596c8-4246-40ea-b92c-dfdc96da7239">
+
+Based on the line graphs, it is evident that annual members maintain a consistent level of ridership throughout the workweek, with a slight decrease on weekends. In contrast, casual ridership is lower during weekdays but experiences a significant increase during the weekend. Moreover, the average ride duration for annual members is 13.23 minutes, while casual riders have an average ride duration of 25.98 minutes, nearly twice as long.
+
+These findings strongly support our hypothesis that annual members primarily use Cyclistic bikes for weekday commuting, taking short trips to and from work. On the other hand, casual riders tend to use Cyclistic bikes on the weekends for recreational purposes, enjoying longer rides.
+
+To gain further insights, we now turn our attention to a map of Chicago that displays the starting locations of bike trips. The map categorizes the bike trips by member type and excludes electric bike trips where a bike lock was used. Additionally, the map is filtered to show only the top 10 locations with the highest frequencies of starting trips for each member type.
 
 
 
