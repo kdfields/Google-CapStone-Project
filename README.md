@@ -122,6 +122,38 @@ These findings strongly support our hypothesis that annual members primarily use
 
 To gain further insights, we now turn our attention to a map of Chicago that displays the starting locations of bike trips. The map categorizes the bike trips by member type and excludes electric bike trips where a bike lock was used. Additionally, the map is filtered to show only the top 10 locations with the highest frequencies of starting trips for each member type.
 
+<img width="817" alt="image" src="https://github.com/kdfields/Google_CapStone_Project/assets/113741694/11579022-4941-4796-b0c9-5adc9f7e6aef">
+
+It is evident that the most popular starting stations for casual members are typically located near bodies of water and large parks. On the other hand, annual members tend to commence their bike trips more centrally, closer to Chicago's financial district, office complexes, and residential buildings.
+
+Let's shift our focus to examining the top 10 destinations where bike rides conclude, specifically excluding trips where a bike lock was utilized.
+
+<img width="792" alt="image" src="https://github.com/kdfields/Google_CapStone_Project/assets/113741694/47c2c929-894b-4856-9a2a-ea78f9a79fd1">
+
+The maps reflect a consistent pattern where casual riders tend to prefer areas in proximity to parks, waterfronts, and piers, while annual members are more inclined to frequent commercial zones. Interestingly, the top 5 stations visited by casual riders are the same for both their starting and ending points. These stations, namely Streeter Dr & Grand Ave (the pier), Millennium Park, Theater on the Lake, and Shedd Aquarium, are prominent tourist attractions and recreational spots. In contrast, none of these stations rank within the top 5 for annual members, suggesting that recreational activities and sightseeing hold lesser importance for this group.
+
+**Summary of Insights:**
+Casual Riders:
++ Primarily use Cyclistic bikes for leisure, preferring midday rides on weekends, particularly during late spring and early summer.
++ Their average ride duration is approximately twice as long as that of annual members.
++ Tend to start and end their trips near water bodies, city parks, and tourist/recreational attractions.
+Annual Members:
++ Predominantly use Cyclistic bikes for commuting, with year-round weekday rides, especially during peak work commuting hours. Winter months show a slight decrease in ridership.
++ The average ride duration for annual members is approximately half that of casual riders.
++ Typically start and end their trips in urban areas near office and apartment buildings.
+
+## Recommended Actions:
+
+After analyzing the disparities between casual riders and annual members, the marketing department can now focus on converting casual riders into long-term annual members. However, it's important to note that a significant portion of casual riders are likely tourists who may not be interested in becoming annual members. Nonetheless, I have formulated the following recommendations aimed at converting Chicago residents who are casual riders into loyal annual members:
+
++ Introduce new subscription plans: Cyclistic can offer specialized plans such as the 'Warm-Weather Member' or 'Weekend Member.' The 'Warm-Weather Member' plan would provide discounted unlimited bike usage during the six months of spring and summer. Similarly, the 'Weekend Member' plan would offer unlimited bike access every Friday, Saturday, and Sunday throughout the year.
+
++ Optimize advertising campaigns: To maximize impact, advertising campaigns should be launched during the summer months when casual ridership is at its peak. This ensures the message reaches the largest audience possible. Additionally, setting up informational and promotional booths on weekends near popular starting and ending stations for casual riders, such as the Chicago Pier and Millennium Park, can help engage potential members and provide them with relevant details.
+
+By implementing these strategies, Cyclistic can refine its marketing approach to target Chicago residents who currently use the service casually, aiming to convert them into long-term annual members.
+
+
+
 
 
 
