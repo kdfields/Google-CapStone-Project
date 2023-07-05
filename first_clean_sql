@@ -1,0 +1,110 @@
+CREATE TABLE Google_Case_Study.combined_tripdata AS
+SELECT *
+FROM(
+  SELECT * FROM `concise-complex-384314.Google_Case_Study.jan_data`
+  UNION ALL
+  SELECT * FROM `concise-complex-384314.Google_Case_Study.feb_data`
+  UNION ALL
+  SELECT * FROM `concise-complex-384314.Google_Case_Study.mar_data`
+  UNION ALL
+  SELECT * FROM `concise-complex-384314.Google_Case_Study.apr_data`
+  UNION ALL
+  SELECT * FROM `concise-complex-384314.Google_Case_Study.may_data`
+  UNION ALL
+  SELECT * FROM `concise-complex-384314.Google_Case_Study.jun_data`
+  UNION ALL
+  SELECT * FROM `concise-complex-384314.Google_Case_Study.jul_data`
+  UNION ALL
+  SELECT * FROM `concise-complex-384314.Google_Case_Study.aug_data`
+  UNION ALL
+  SELECT * FROM `concise-complex-384314.Google_Case_Study.sep_data`
+  UNION ALL
+  SELECT * FROM `concise-complex-384314.Google_Case_Study.oct_data`
+  UNION ALL
+  SELECT * FROM `concise-complex-384314.Google_Case_Study.nov_data`
+  UNION ALL
+  SELECT * FROM `concise-complex-384314.Google_Case_Study.dec_data`
+);
+
+SELECT COUNT(*) AS num_records FROM `concise-complex-384314.Google_Case_Study.combined_tripdata`
+/*returned 5,595,063 rows*/
+
+--------------------ANALYZE ALL COLUMNS IN THE DATASET_____________________________________________
+
+/*ride_id*/
+SELECT LENGTH(ride_id) as char_length, count(*) as num_records
+FROM `concise-complex-384314.Google_Case_Study.combined_tripdata`
+GROUP BY LENGTH(ride_id)
+/*all ride_id strings are 16 chars*/
+
+/*Confirm that all ride_id values are unique*/
+SELECT COUNT(DISTINCT ride_id) as num_unique_ride_ids
+FROM `concise-complex-384314.Google_Case_Study.combined_tripdata`
+/*5595063 distinct ride_id*/
+
+/*rideable_types*/
+SELECT DISTINCT rideable_type
+FROM `concise-complex-384314.Google_Case_Study.combined_tripdata`
+/*confirmed 3 bike types: electric, classic, docked ('docked_bikes' are named incorrectly and will be changed to clasic later)*/
+
+/*started_at and ended_at columns...
+checking to see if any rides are less than 1 minute or longer than 1 day*/
+SELECT COUNT(*) as trip_outliers 
+FROM `concise-complex-384314.Google_Case_Study.combined_tripdata`WHERE TIMESTAMP_DIFF(ended_at, started_at, MINUTE) <= 1 OR
+  TIMESTAMP_DIFF(ended_at, started_at, MINUTE) >= 1440
+/*163630 trips fall under this criteria and will be removed later.*/
+
+/*start_station_name and end_station_name*/
+SELECT start_station_name, count(*) AS count_of_rides
+FROM `concise-complex-384314.Google_Case_Study.combined_tripdata`
+GROUP BY start_station_name
+ORDER BY start_station_name
+/*Null, 351, Base - 2132 W Hubbard Warehouse, Lyft Driver Center Private Rack need to be removed*/
+
+
+SELECT end_station_name, count(*) as count_of_rides
+FROM `concise-complex-384314.Google_Case_Study.combined_tripdata`
+GROUP BY end_station_name
+ORDER BY end_station_name
+/*NULL, Base-2132 W Hubbard Warehouse, Divvy Cassette Repair Mobile, Lyft Driver Center Private Rack need to be removed*/
+
+/* Count start/end station name/id */
+SELECT COUNT(DISTINCT(start_station_name)) AS unq_startname,
+   COUNT(DISTINCT(end_station_name)) AS unq_endname,
+   COUNT(DISTINCT(start_station_id)) AS unq_startid,
+   COUNT(DISTINCT(end_station_id)) AS unq_endid
+FROM `concise-complex-384314.Google_Case_Study.combined_tripdata`
+
+SELECT LENGTH(start_station_id), count(*) as number_of_trips
+FROM `concise-complex-384314.Google_Case_Study.combined_tripdata`
+GROUP BY start_station_id
+/* -Leading and trailing spaces need to be removed
+   -Remove station_names with (temp) as this indicates repairs are happening at that station
+   -Start/End station_ids will be ignored as they don't add value to the data */
+
+/* Checking for NULLS in start/end station_name */
+SELECT rideable_type, count(*) as num_of_NULLS
+FROM `concise-complex-384314.Google_Case_Study.combined_tripdata`
+WHERE start_station_name IS NULL AND start_station_id IS NULL OR
+end_station_name IS NULL AND end_station_id IS NULL
+GROUP BY rideable_type;
+/* Classic and docked bikes are required to start and end their trips at a docking station, but electric bikes may be locked up 
+nearby using attached bike locks; these trips do not require a start and end station name.  Classic/docked bikes with no  
+start and end station name will be removed and electric bikes with no start and end station names will be changed to 'On Bike Lock' */
+
+/* Start/End Lat/Lng */
+SELECT COUNT(*) AS num_of_nulls
+FROM `concise-complex-384314.Google_Case_Study.combined_tripdata`
+WHERE start_lat IS NULL OR
+  start_lng IS NULL OR
+  end_lat IS NULL OR
+  end_lng IS NULL
+## 4771 rows with NULL start/end lat/lng fields will be removed
+
+/* member_casual */
+
+
+
+
+
+
